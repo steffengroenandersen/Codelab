@@ -4,7 +4,7 @@
 import java.util.*;
 
 
-public class User1{
+public class Exercise1{
    public static void main(String[] args){
       //get input from user
       Scanner scanner = new Scanner(System.in);
