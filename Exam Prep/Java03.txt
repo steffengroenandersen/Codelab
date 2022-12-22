@@ -1,0 +1,77 @@
+Chapter04. Eriks exam like questions.
+
+----------------------------------------
+E1. Why do you need Exception Handling ?
+
+------------------------------------------
+E2. What is the need for the finally block ?
+
+------------------------------------------
+E3. What is wrong with this code ?
+
+private String getFromConnection() {
+   try {
+      Connection connection = new Connection
+      connection.open();
+      
+      //Some logic
+      String str = "123x";
+      Integer i = Integer.parseInt(str);
+      System.out.println("This will never print");
+
+      connection.close();
+    } catch (Exception e) {
+      log("Error in getFromConnection" + e.getMessage);
+    }
+
+------------------------------------------
+E4. Will the finally block be executed in this code ?
+
+   Connection connection = new Connection
+   connection.open();
+   try {
+      //Some logic
+      String str = "123x";
+      Integer i = Integer.parseInt(str);
+      System.out.println("This will never print");
+      return;	
+    } catch (Exception e) {
+      log("Error in getFromConnection" + e.getMessage);
+      return;
+    } finally {
+      connection.close();
+      
+    }
+
+------------------------------------------
+E5. How do you print or log the stack trace ?
+
+How could it be coded to print or log the stack trace returned from e.getStackTrace() ?
+
+------------------------------------------
+E6. How can you at any point get the stack trace, also when no error has occurred ?
+
+------------------------------------------
+E7. Is try without a catch allowed ?
+
+------------------------------------------
+E8. What are the 3 highest placed classes in the Exception hierarchy ?
+
+------------------------------------------
+E9. What is the difference between Error and Exception
+
+------------------------------------------
+E10. What is the difference between unchecked and checked exceptions.
+
+What class could you subclass if you want to write your own unchecked exception.
+
+------------------------------------------
+E11. One way to handle an Exception that is thrown inside a method, 
+     is to do a try catch block inside that same method.
+     What is the other way ?
+
+------------------------------------------
+E12. How could you add some extra information to an exception object before passing it to the calling method ?
+
+------------------------------------------
+

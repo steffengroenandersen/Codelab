@@ -1,0 +1,71 @@
+A little to advanced for exams question.
+
+----------------------------------------------
+S1. 
+        ArrayList<String> lststr = new ArrayList<>();
+        for (int i = 0; i < 200000000; i++) {
+            lststr.add("Hello World");
+        }
+        System.out.println(lststr.size());
+
+The above code executes in a couple of seconds and print out the number 200mio.
+
+        ArrayList<String> lststr = new ArrayList<>();
+        for (int i = 0; i < 200000000; i++) {
+            lststr.add("Hello World" + i);
+        }
+        System.out.println(lststr.size());
+
+The above code quickly throws a java.lang.OutOfMemoryError
+Try explain why the second code block fails and not the first one.
+
+The first loop adds the same String to the collection.
+Java stores the string "Hello World" in a string pool.
+So the string "Hello World" is only created once.
+All the entrances in the ArrayList lststr, points to that same object.
+In the second loop, a new String is created for every line.
+
+----------------------------------------------
+S2. 
+        String s11 = "";
+        for (int i = 0; i < 200000000; i++) {
+            s11 = s11 + "12345678901234567890123456789012345678901234567890" + i;
+            if (i % 10000 == 0) {
+                System.out.println("i=" + i + "s11.length=" + s11.length());
+            }
+        }
+        System.out.println("size s11=" + s11.length());
+
+The above code seems to be running forever.
+After several minutes we reach 200.000 
+i=200000s11.length=11088946
+
+200.000 new strings has been created and the lenght of s11 is 11088946 more than 11mio.
+
+What is going on ?
+
+For every loop in the above, a new String object is created, and s11 points to that object.
+The previous s11 object is no longer used.
+The no longer used String objects are removed by the garbage collector, that is why memory is not filled up.
+The garbage collector is not running for each loop, but kicks in once in a while to clean up not used objects.
+
+--------------------------------------
+S3. 
+        StringBuilder s11 = new StringBuilder();
+        for (int i = 0; i < 20000000; i++) {
+            s11 = s11.append("12345678901234567890123456789012345678901234567890" + i);
+        }
+        System.out.println("size s11=" + s11.length());
+
+The above code finishes in less than 3 seconds.
+and prints
+size s11=1148888890
+
+So in 2-3 seconds we loop 20mio times and build a string with size 1 148 888 890 more than 1 billion char..
+
+So in some situations... should you consider using StringBuilder instead of String ?
+
+Yes in some cases in can give a big perfomance boost to use StringBuilder instead of String !
+
+--------------------------------------
+

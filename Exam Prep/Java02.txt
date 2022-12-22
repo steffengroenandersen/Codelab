@@ -1,0 +1,249 @@
+Java02. Eriks exam like questions.
+
+----------------------------------------
+S1. Are Arrays dynamic in Java ?
+
+----------------------------------------
+S2. What do you need to do when having an array of size 5, and you need to add a sixth element ?
+
+To add a new element to the array, a new array has to be created with a bigger size, 
+and all the elements from the old array copied to the new array.
+
+----------------------------------------
+S3.
+
+In the following questions we have a Person Class.
+public class Person {
+    protected String firstName;
+    private String lastName;
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    public String getFirstName() {
+        return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+}
+
+----------------------------------------
+S3.
+    Person ppp = new Person("Jens", "Jensen");
+    System.out.println(ppp);
+
+What will the above print out ?
+explain.
+
+Try to write your own toString method that prints out the exact same.
+
+------------------------------------------------
+S4. 
+  if obj1.hashCode() is different from obj2.hashCode(), do you need to check equals() to see if they are different.
+
+------------------------------------------------
+S5. 
+  if obj1.equals(obj2) is true, do you need to check the hashCode to see if they are equal ?
+
+------------------------------------------------
+S6. 
+        ArrayList<Person> lstP = new ArrayList<>();
+        Person pp = new Person("Jens", "Hansen");
+        lstP.add(new Person("Lars", "Larsen"));
+        lstP.add(pp);
+        lstP.add(pp);
+        lstP.add(new Person("Lars", "Larsen"));
+
+What is the size of lstP in the above ?
+
+------------------------------------------
+S7. Remove all Jens.
+
+   Use a normal for loop to remove all Person with first name Jens from the above list.
+   It is a simple line of code inside the for loop.
+
+------------------------------------------
+S8.  Remove all with lastName = Larsen with a normal for loop
+   a little more complicated line of code, but still possible to do in a few lines (in 1 line actually without using {} ).
+
+
+Test your loop on this list also.
+
+         ArrayList<Person> lstP = new ArrayList<>();
+         Person pp = new Person("Jens", "Hansen");
+         lstP.add(new Person("Lars1", "Larsen"));
+         lstP.add(pp);
+         lstP.add(pp);
+         lstP.add(new Person("Lars2", "Larsen"));
+         lstP.add(new Person("Lars3", "Larsen"));
+         lstP.add(new Person("Lars4", "Larsen"));
+
+------------------------------------------
+S9. Remove all Jens , with the ArrayList function removeIf.
+
+------------------------------------------
+S10. Does it change anything in the above if you switch the line.
+
+        ArrayList<Person> lstP = new ArrayList<>();
+to
+        LinkedList<Integer> lst = new LinkedList<>();
+
+Explain why ?
+
+------------------------------------------
+S11. Which of these methods are not part of the List interface declaration ?
+
+add
+remove
+addAll
+removeAll
+equals
+hashCode
+trimToSize
+sort
+clear
+size
+forEach
+
+------------------------------------------
+S12. 
+        LinkedList<Person> lstP = new LinkedList<>();
+        Person pp = new Person("Jens", "Hansen");
+        lstP.add(new Person("Lars", "Larsen"));
+        lstP.add(pp);
+        lstP.add(pp);
+        lstP.add(new Person("Lars", "Larsen"));
+
+        System.out.println(lstP.hashCode());
+        System.out.println(lstP.size());
+
+In the above code, where is the lstP.hashCode() method implemented ?
+
+
+------------------------------------------
+S13. Where do LinkedList perform better than ArrayList ?
+
+------------------------------------------
+S14. What kind of BigO is the follwing
+
+        ArrayList<Integer> lst1 = new ArrayList<>();
+        ArrayList<Integer> lst2 = new ArrayList<>();
+        int n = 20000;
+        long start = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            lst1.add(i);
+            lst2.add(i);
+            bEqual = lst1.equals(lst2);
+        }
+        bEqual = lst1.equals(lst2);
+        long end = System.nanoTime();
+        printElapsed(start, end, "Equals=");
+        System.out.println("bEqual=" + bEqual);
+
+------------------------------------------
+S15. The above code takes 800milisec on my machine.
+  Now if I change n to 40000, meaning n times 2,
+  how long do you think the code will take to execute ?
+
+------------------------------------------
+S16. In the above code,
+  where is the ls1.equals method implemented ?
+
+------------------------------------------
+S17. Does interfaces in Java support multiple inheritance ?
+
+------------------------------------------
+S18. Does Java support multiple inheritance ?
+
+------------------------------------------
+S19. How is Interfaces supported in plain JavaScript ?
+
+------------------------------------------
+S20. 
+        Set<Person> lstP = new HashSet<>();
+        Person pp = new Person("Jens", "Hansen");
+        lstP.add(new Person("Lars", "Larsen"));
+        lstP.add(pp);
+        lstP.add(pp);
+        lstP.add(new Person("Lars", "Larsen"));
+
+What is the size of lstP after above run ?
+
+------------------------------------------
+S21. What should be added to Person in order to avoid Lars Larsen to show up twice in the above Set ?
+
+------------------------------------------
+S22. If you only added equals method above. Will that work ?
+
+------------------------------------------
+S23. So try explain what does the hashCode() function do ?
+
+------------------------------------------
+S24. How do you sort a Collection ?
+
+        List<Person> lstP = new ArrayList<>();
+        lstP.add(new Person("Lars", "Larsen"));
+        lstP.add(new Person("Jan", "Hansen"));
+        lstP.add(new Person("Ole", "Smidt"));
+        lstP.add(new Person("Lone", "Jensen"));
+
+Write the above list out sorted after firstName and sorted after lastName
+
+Use a class variable to hold an argument that decides whether to sort after firstName or lastName
+
+------------------------------------------
+S25. What are Generics ?
+
+------------------------------------------
+S26. How is Generics supported in plain JavaScript ?
+
+------------------------------------------
+S27. Create a simple class that use a generic type as argument.
+
+class MyGenericList<T> {
+
+It should encapsulate a List of the type T.
+And implement the methods add, remove, get.
+
+In the main program, create MyGenericList collections of two different types. E.g. String and Integer.
+
+------------------------------------------
+S28. What kind of pattern could you argue you have implemented in S27.
+
+------------------------------------------
+S29. If you only implemented add, remove, get in your MyGenericList,
+     how will you print the following list out.
+
+
+	MyGenericList<String> lst = new MyGenericList<>();
+	    lst.add("Kurt");
+	    lst.add("Jens");
+	    lst.add("Viggo");
+            System.out.println(lst);
+
+
+------------------------------------------
+S30. This is legal code in Java.
+
+    public int sum(int... numbers) {
+        int sum = 0;
+        for (int number : numbers) {
+            sum += number;
+        }
+        return sum;
+    }
+
+How can the sum method be called ?
+
+What exact type is numbers in the above method.
+
+------------------------------------------
+
+
