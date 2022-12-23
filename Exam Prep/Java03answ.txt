@@ -1,0 +1,193 @@
+Chapter04. Eriks exam like questions.
+
+Now with answers..
+
+----------------------------------------
+E1. Why do you need Exception Handling ?
+
+You need to catch errors in a proper way.
+Then give user a helpsome errormessage.
+And if it is not a user error, somehow log the error to the support team so the error can be fixed in future versions.
+
+Also it is important to catch errors otherwise the Java program will just stop and dump a stacktrace.
+E.g. a Java program should not stop just because a user enters a wrong date in a date field.
+
+------------------------------------------
+E2. What is the need for the finally block ?
+
+To make sure ressources is cleaned up.
+Make sure whatever was initialized in the preceeding code 
+
+------------------------------------------
+E3. What is wrong with this code ?
+
+private String getFromConnection() {
+   try {
+      Connection connection = new Connection
+      connection.open();
+      
+      //Some logic
+      String str = "123x";
+      Integer i = Integer.parseInt(str);
+      System.out.println("This will never print");
+
+      connection.close();
+    } catch (Exception e) {
+      log("Error in getFromConnection" + e.getMessage);
+    }
+
+In the above code, the connection.close() is never executed.
+The connection.close() should be called in a finally block to make sure it is always executed.
+
+
+   Connection connection = new Connection
+   connection.open();
+   try {
+      //Some logic
+      String str = "123x";
+      Integer i = Integer.parseInt(str);
+      System.out.println("This will never print");
+
+    } catch (Exception e) {
+      log("Error in getFromConnection" + e.getMessage);
+    } finally {
+      connection.close();
+    }
+
+In the above the connection is always closed.
+
+
+------------------------------------------
+E4. Will the finally block be executed in this code ?
+
+   Connection connection = new Connection
+   connection.open();
+   try {
+      //Some logic
+      String str = "123x";
+      Integer i = Integer.parseInt(str);
+      System.out.println("This will never print");
+      return;	
+    } catch (Exception e) {
+      log("Error in getFromConnection" + e.getMessage);
+      return;
+    } finally {
+      connection.close();
+    }
+
+yes finally block is executed even there is return statements in try or catch block.
+
+------------------------------------------
+E5. How do you print or log the stack trace ?
+
+e.getStackTrace()  returns a StackTraceElement[].
+
+How could it be coded to print or log the stack trace returned from e.getStackTrace() ?
+
+            for (StackTraceElement st : lst) {
+                System.out.println("stackline= " + st);
+            }
+or
+            for (StackTraceElement st : lst) {
+                log4j(st);
+            }
+
+
+
+------------------------------------------
+E6. How can you at any point get the stack trace, also when no error has occurred ?
+
+            Exception nn = new Exception();
+            StackTraceElement[] lst1 = nn.getStackTrace();
+            for (StackTraceElement st : lst1) {
+                log4j("stackline= " + st);
+            }
+
+------------------------------------------
+E7. Is try without a catch allowed ?
+
+Yes it is. If it has a finally block.
+
+
+------------------------------------------
+E8. What are the 3 highest placed classes in the Exception hierarchy ?
+
+class Error extends Throwable();
+class Exception extends Throwable();
+class RuntimeException extends Exception();
+
+------------------------------------------
+E9. What is the difference between Error and Exception
+
+Error are serious erros in jvm that the developer cannot catch.
+You can throw an Error but not catch it.
+
+Typical error messages are, StackOverflowError and OutOfMemoryError
+
+Exception is used when a programmer can handle the exception.
+
+
+------------------------------------------
+E10. What is the difference between unchecked and checked exceptions.
+
+What class could you subclass if you want to write your own unchecked exception.
+
+------------------------------------------
+E11. One way to handle an Exception that is thrown inside a method, 
+     is to do a try catch block inside that same method.
+     What is the other way ?
+
+ The method could throw the Exception 
+ like this
+ public int getIntFromProc() throws Exception {
+
+
+------------------------------------------
+E12. How could you add some extra information to an exception object before passing it to the calling method ?
+
+You can subclass Exception to add some extra properties to hold information about the exception.
+
+public class EmptyStringException extends Exception {
+    private String extraInfo;
+
+    public EmptyStringException() {
+        super("Empty String");
+    }
+
+    public String getExtraInfo() {
+        return  extraInfo;
+    }
+
+    public void setExtraInfo(String extraInfo) {
+        this.extraInfo = extraInfo;
+    }
+}
+
+
+   public int getIntFromName2(String name) throws EmptyStringException {
+        if (name == null) {
+            EmptyStringException exp = new EmptyStringException();
+            exp.setExtraInfo("The name was null");
+            throw exp;
+        }
+        return name.length();
+    }
+
+    public int getIntFromName3() {
+        try {
+            String s = null;
+            int i = getIntFromName2(s);
+            return i;
+        } catch (EmptyStringException e) {
+            System.out.println(e.getMessage() + " " + e.getExtraInfo());
+        }
+        return 1;
+    }
+
+
+The above code will print
+Empty String The name was null
+
+
+------------------------------------------
+

@@ -1,0 +1,459 @@
+Java01. Eriks exam like questions.
+
+------------------------------------------------------
+S1. Why is Java not considered a pure objectoriented language.
+
+I googled this:
+Java is not fully object oriented because it supports primitive data type like int,byte,long etc.,which are not objects
+
+------------------------------------------------------
+S2. Can a primitive have the value null ?
+
+No
+
+------------------------------------------------------
+S3. For all primitives, java has wrapper classes.
+  Are values in wrapper classes immutable ?
+
+Yes. A value in a wrapper cannot change value.
+
+------------------------------------------------------
+S4.
+        List<Integer> lst = new ArrayList<>();
+        lst.add(1);
+        for (int i = 0; i < lst.size(); i++) {
+            System.out.println(lst.get(i).getClass().getName());
+        }
+
+What will the above print ?
+
+java.lang.Integer
+
+The line lst.add(1) automatically boxed 1 into a new Integer class.
+
+------------------------------------------------------
+S5.
+        List<Integer> lst = new ArrayList<>();
+        lst.add(1);
+        for (int ii: lst) {
+            System.out.println(ii.getClass().getName());
+        }
+
+What will the above print ?
+
+It will not compile, because a primitive is not allowed in the above for loop construction.
+Only real objects can be used in for (Object obj: lst)
+
+------------------------------------------------------
+S6.  Write a function that converts a string to an Integer (return int).
+     In 1 line of code.
+
+    public static int getInt2(String intS) {
+        return Integer.valueOf(intS);
+    }
+
+Now enhance that function, using exceptions to return the smallest possible Integer
+if the String passed to the function is not a valid Integer 
+otherwise of course just return a valid integer.
+
+    public static int getInt2(String intS) {
+        try {
+            return Integer.parseInt(intS);
+        } catch (NumberFormatException e) {
+            return Integer.MIN_VALUE;
+        }
+    }
+
+------------------------------------------------------
+S7. What happens here ?
+        Integer a = Integer.valueOf(9);
+        a++;
+
+Something like this:
+The Integer object a, is converted to an int, 1 is added
+and a new Integer object is created that wraps the new value.
+
+
+------------------------------------------------------
+S8.
+        Integer n1 = 9;
+        Integer n2 = 9;
+        System.out.println(n1 == n2);
+        System.out.println(n1.equals(n2));
+
+What does the above print.
+
+true
+true
+
+In the first 2 lines n1 and n2 points to the same Integer object.
+It is called autoboxin that the int 9 is converted to an Integer with value 9.
+
+--------------------------------------
+S9.
+        Integer n1 = new Integer(9);
+        Integer n2 = new Integer(9);
+        System.out.println(n1 == n2);
+        System.out.println(n1.equals(n2));
+
+What does the above print.
+
+false
+true
+
+Unlike in S11, here are 2 Integer objects created.
+An example why you should not use new Integer();
+
+
+--------------------------------------
+S10.
+        Integer i2 = Integer.valueOf("1111", 2);
+        System.out.println(i2);
+
+The above prints 15.
+Explain the second argument of valueOf.
+
+The second argument is the numeral system. 
+In the above the binary number system, where 1111 equals 15 in the base 10 numerical system.
+
+
+--------------------------------------
+S11.
+        int big = 255;
+        byte small = (byte) big;
+
+What is the above called ?
+
+Casting. We cast an int to a byte.
+
+--------------------------------------
+S12. 
+        int big = 255;
+        byte small = (byte) big;
+        System.out.println("small=" + small);
+        big = 256;
+        small = (byte) big;
+        System.out.println("small=" + small);
+        big = 257;
+        small = (byte) big;
+        System.out.println("small=" + small);
+
+What is printed in the above 3 lines ?
+
+-1
+0
+1
+
+        System.out.println(Integer.toBinaryString(255));
+        System.out.println(Integer.toBinaryString(256));
+        System.out.println(Integer.toBinaryString(257));
+will print
+
+ 11111111
+100000000
+100000001
+
+When the above numbers are casted to a byte, only the last 8 bit are used to calculate the value.
+11111111  is -1
+00000000  is 0
+00000001  is 1
+
+
+--------------------------------------
+S13. Are all Strings in Java immutable ?
+
+Yes
+
+--------------------------------------
+S14. 
+        String str3 = "value1";
+        str3.concat("value2");
+        System.out.println(str3);
+
+What happens in the above ? is the value2 string beeing added to the value1 string ?
+So str3 now is "value1value2"
+
+No, str3 is still "value1" after the above.
+Because String is immutable, str3 cannot be changed.
+A new string is created in the concat line.
+In order to get the value of that string you could write
+
+       String s4 = str3.concat("value2");
+
+--------------------------------------
+S15.
+        String s1 = "abcde";
+        s1.replace('a', 'x');
+        System.out.println(s1);
+
+abcde
+
+
+--------------------------------------
+S16. Fix the above code to print xbcde
+
+Fix could be:
+        String s1 = "abcde";
+        String s2 = s1.replace('a', 'x');
+        System.out.println(s2);
+
+
+----------------------------------------
+S17. In Object Oriented Programming you can say an object has a state and a behaviour
+what represents the state ?
+and what represents the behaviour ?
+
+state is reprented by instance variables (properties) and behaviour by methods.
+
+----------------------------------------
+S18. Are class variables part of an objects state.
+
+No, they are global to all instances of the class.
+
+----------------------------------------
+S19. What is the super class of every class in Java ?
+
+Class Object 
+
+You can find out using the following code.
+
+        String s1 = "hej";
+        Class obj =  s1.getClass().getSuperclass();
+        System.out.println(obj);
+
+----------------------------------------
+S20. What is Method Overriding ?
+
+Creating a Sub Class Method with the same signature as that of a inherited method.
+
+------------------------------------------------
+S21. What is Method Overloading ?
+
+A method having the same name as another method but with different parameters (signature).
+Overloading can also be done in a subclass
+
+------------------------------------------------
+S22. Is Multiple Inheritance allowed in Java ?
+
+No, an object can only inherit from 1 class.
+
+------------------------------------------------
+S23. What is an interface ?
+
+An interface defines a contract for responsibilities (methods) of a class.
+
+------------------------------------------------
+S24. Can an interface extend a class ?
+
+No. 
+
+------------------------------------------------
+S25. Can a class extend multiple interfaces ?
+
+No. But a class can implement multiple interfaces.
+It should implement all the methods declared in all interfaces being implemented.
+
+------------------------------------------------
+S26. What is an abstract class ?
+
+An abstract class is a class that cannot be instantiated, but must be inherited from.
+An abstract class is can be used to start a new class hierarcy 
+when having a group of business objects with common behaviour.
+
+if you want to provide common, implemented functionality among all implementations of your component.
+
+Abstract classes allow you to partially implement your class.
+
+------------------------------------------------
+S27. How do you define an abstract method ?
+
+An abstract method does not contain body.
+An abstract method does not have any implementation.
+The implementation of an abstract method should be provided in an over-riding method in a sub class.
+
+abstract Integer getIntegers();
+
+
+------------------------------------------------
+S28. Can a normal class have an abstract method ?
+
+No.
+
+------------------------------------------------
+S29. Can we inherit an abstract class from another abstract class?
+
+Yes.
+
+------------------------------------------------
+S30. Mention just one difference between an interface and an abstract class
+
+All methods of an interface must be public.
+And interface can inherit multiple interfaces.
+
+------------------------------------------------
+S31. What is an Constructor ?
+
+Constructor is invoked whenever we create an instance of a Class.
+We cannot create an object without a constructor.
+
+------------------------------------------------
+S32. Mention 2 things that are different from a Constructor and a method.
+
+A constructor starts with a capital letter.
+A constructor doesnt have any return type.
+
+
+------------------------------------------------
+S33. Why does this code not compile ?
+
+public class Student {
+    public String name;
+
+    public Student(String name) {
+        this.name = name;
+    }
+
+    public static void main(String[] args) {
+        Student std = new Student();
+    }
+}
+
+
+Because the default constructor has been overriden.
+The default constructor does not take any arguments.
+
+
+------------------------------------------------
+S34. How do you call a Super Class Constructor from a Constructor ?
+
+    public Student(String name) {
+    	super();
+        this.name = name;
+    }
+
+Is the above super() necessary ?
+No. super(); will be called automatically.
+
+
+------------------------------------------------
+S35. This code doesnt compile, why ?
+
+public class Student {
+    public String name;
+
+    public Student(String name) {
+        this.name = name;
+        super();
+    }
+
+    public static void main(String[] args) {
+        Student std = new Student("hans");
+    }
+}
+
+The call to super() must be the first line in a constructor.
+
+
+------------------------------------------------
+S36. How would you create a constructor in class Student that takes no arguments 
+     but call the constructor in the same class that takes a name argument,
+     meaning the class has a property String name, and a constructor that sets that name property.
+
+    public Student() {
+        this("Default name");
+    }
+
+------------------------------------------------
+S37. What will be printed out from the main method in class Main ?
+
+public class Student {
+    public String name;
+
+    public Student() {
+        this("Default name");
+    }
+
+    public Student(String name) {
+        this.name = name;
+        System.out.println("Student created with name =" + name);
+    }
+
+    public static void main(String[] args) {
+        Student std = new Student("hans");
+    }
+}
+
+public class KEAStudent extends Student {
+
+    public KEAStudent() {
+        System.out.println("KEA Student created");
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        KEAStudent kea = new KEAStudent();
+        System.out.println(kea.name);
+    }
+}
+
+Student created with name =Default name
+KEA Student created
+Default name
+
+------------------------------------------------
+S38. What is Polymorphism in one simple sentence ?
+
+Polymorphism is defined as "Same Code" giving "Different Behavior".
+Same method signature implemented diferrently in different Classes.
+
+
+------------------------------------------------
+S39. Can a private variable in a super class be accessed from a subclass.
+
+No.
+
+
+------------------------------------------------
+S40. What is the use of a final modifier on a method ?
+
+Final methods cannot be overriden. 
+Calling a final method has less overhead, so perform better.
+
+------------------------------------------------
+S41. What is a Final variable ?
+
+Once initialized, the value of a final variable cannot be changed.
+
+
+------------------------------------------------
+S42. Write a method signature with an argument that cannot be changed inside the method.
+
+void testMethod(final int finalArgument) {}
+
+
+------------------------------------------------
+S43. What are static variables and methods ?
+
+Static variables and methods are class level variables and methods.
+There is only one copy of the static variable for the entire Class.
+or you could say only one shared value between all instances.
+You dont need an instance of the class to use a static variable or call a static method.
+
+Another rule is, you can access a static method from an instance method
+but you cannot access an instance method from a static method.
+
+
+------------------------------------------------
+S44.  A top-level class in Java cannot be declared static.
+But what does the following mean ?
+
+public final class MyStaticClass {
+
+
+All methods in a final class are final, because a final class cannot be subclassed.
+
+
+------------------------------------------------
+
