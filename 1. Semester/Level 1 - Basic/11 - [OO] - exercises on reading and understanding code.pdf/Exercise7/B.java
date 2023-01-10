@@ -13,4 +13,6 @@ public class B extends A{
       System.out.println("Variable a = " + a);
       System.out.println();
    }
+   
+   
 }

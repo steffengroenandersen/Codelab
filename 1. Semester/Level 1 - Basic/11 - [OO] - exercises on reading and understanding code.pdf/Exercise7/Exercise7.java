@@ -16,5 +16,7 @@ public class Exercise7{
       System.out.println("-------");
       
       B b;
+      
+      System.out.println(b.a);
    }
 }
