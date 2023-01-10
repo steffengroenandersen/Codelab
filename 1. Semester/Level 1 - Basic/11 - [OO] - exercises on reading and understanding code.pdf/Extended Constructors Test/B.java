@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-public class B extends A {
- private int a = 123;
- public B() {
- a = 2222;
- }
- public void rollBackA () {
- a = super.getA();
- }
- public void setA( int value) {
- a = value;
- }
- public int getA() {
- return a;
- }
-} //class B
-=======
 public class B extends A{
    int a = 50;
    
@@ -30,7 +13,4 @@ public class B extends A{
       System.out.println("Variable a = " + a);
       System.out.println();
    }
-   
-   
 }
->>>>>>> main
