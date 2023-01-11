@@ -17,6 +17,6 @@ public class Exercise7{
       
       B b;
       
-      System.out.println(b.a);
+      //System.out.println(a);
    }
 }
