@@ -3,12 +3,20 @@ Java01. Eriks exam like questions.
 ------------------------------------------------------
 S1. Why is Java not considered a pure objectoriented language.
 
+Man kan programmere funktionelt i programmet. Fx ved brug af statiske metoder.
+
+
+
 ------------------------------------------------------
 S2. Can a primitive have the value null ?
 
+Nej. Null henviser til en fejl i referencen til placeringen i hukommelsen.
+
 ------------------------------------------------------
 S3. For all primitives, java has wrapper classes.
-  Are values in wrapper classes immutable ?
+  Are values in wrapper classes immutable?
+
+Yes. De er immutable og kan ikke ændres. 
 
 ------------------------------------------------------
 S4.
@@ -18,7 +26,9 @@ S4.
             System.out.println(lst.get(i).getClass().getName());
         }
 
-What will the above print ?
+What will the above print?
+
+java.lang.Integer.
 
 
 ------------------------------------------------------
@@ -30,6 +40,8 @@ S5.
         }
 
 What will the above print ?
+
+Den vil ikke compile. Kun rigtig objectiver kan bruge getClass-metoden.
 
 ------------------------------------------------------
 S6.  Write a function that converts a string to an Integer (return int).
