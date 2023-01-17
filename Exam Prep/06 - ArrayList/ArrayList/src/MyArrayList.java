@@ -3,28 +3,21 @@ import java.util.ArrayList;
 public class MyArrayList {
     public static void main(String[] args){
 
-        ArrayList<Integer> integerArrayList = new ArrayList<Integer>();
-
-        integerArrayList.add(66);
-        integerArrayList.add(66);
-        integerArrayList.add(66);
+        Dog dog = new Dog();
+        Cat cat = new Cat();
 
 
+        String a = "true";
 
+        ArrayList<Animal> animalArrayList = new ArrayList<>();
+        animalArrayList.add(dog);
+        animalArrayList.add(cat);
 
-        // Count occurrences of 66
-
-        int counter = 0;
-
-        for(Integer integer : integerArrayList){
-            if(integer == 66){
-                counter++;
+        for(Animal animals : animalArrayList){
+            if(animals instanceof Animal){
+                animals.shout();
             }
         }
-
-        System.out.println(counter);
-
-
 
     }
 }

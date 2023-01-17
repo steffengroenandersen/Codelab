@@ -8,5 +8,7 @@ public class Banana extends Fruit{
     // Methods
     public void showFruitWeight(){
         System.out.println("The Banana weight is " + super.weight + " grams.");
+        super.showFruitWeight();
+        super.showFruitWeight();
     }
 }
