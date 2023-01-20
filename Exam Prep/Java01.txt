@@ -3,12 +3,20 @@ Java01. Eriks exam like questions.
 ------------------------------------------------------
 S1. Why is Java not considered a pure objectoriented language.
 
+Man kan programmere funktionelt i programmet. Fx ved brug af statiske metoder.
+
+
+
 ------------------------------------------------------
 S2. Can a primitive have the value null ?
 
+Nej. Null henviser til en fejl i referencen til placeringen i hukommelsen.
+
 ------------------------------------------------------
 S3. For all primitives, java has wrapper classes.
-  Are values in wrapper classes immutable ?
+  Are values in wrapper classes immutable?
+
+Yes. De er immutable og kan ikke ændres. 
 
 ------------------------------------------------------
 S4.
@@ -18,7 +26,9 @@ S4.
             System.out.println(lst.get(i).getClass().getName());
         }
 
-What will the above print ?
+What will the above print?
+
+java.lang.Integer.
 
 
 ------------------------------------------------------
@@ -30,6 +40,8 @@ S5.
         }
 
 What will the above print ?
+
+Den vil ikke compile. Kun rigtig objectiver kan bruge getClass-metoden.
 
 ------------------------------------------------------
 S6.  Write a function that converts a string to an Integer (return int).
@@ -54,6 +66,11 @@ S8.
 
 What does the above print.
 
+True
+True
+
+Because of autoboxing.
+
 --------------------------------------
 S9.
         Integer n1 = new Integer(9);
@@ -63,6 +80,11 @@ S9.
 
 What does the above print.
 
+False
+True
+
+Equals looks for the value and not the placement.
+
 --------------------------------------
 S10.
         Integer i2 = Integer.valueOf("1111", 2);
@@ -71,38 +93,55 @@ S10.
 The above prints 15.
 Explain the second argument of valueOf.
 
+It is used to convert a String representation of number to a base 10 decimal representation of number. 
+
+It also returns object of Integer.
+
 --------------------------------------
+
 S11.
         int big = 255;
         byte small = (byte) big;
 
 What is the above called ?
 
+Typecasting.
+
 --------------------------------------
 S12. 
         int big = 255;
         byte small = (byte) big;
         System.out.println("small=" + small);
-        big = 256;
+        
+	big = 256;
         small = (byte) big;
         System.out.println("small=" + small);
+
         big = 257;
         small = (byte) big;
         System.out.println("small=" + small);
 
 What is printed in the above 3 lines ?
 
+-1
+0
+1
+
 --------------------------------------
 S13. Are all Strings in Java immutable ?
+Yes.
 
 --------------------------------------
 S14. 
         String str3 = "value1";
-        str3.concat("value2");
-        System.out.println(str3);
 
-What happens in the above ? is the value2 string beeing added to the value1 string ?
+        str3.concat("value2");
+        
+	System.out.println(str3);
+
+What happens in the above? is the value2 string beeing added to the value1 string ?
 So str3 now is "value1value2"
+
 
 --------------------------------------
 S15.
@@ -113,25 +152,36 @@ S15.
 --------------------------------------
 S16. Fix the above code to print xbcde
 
-----------------------------------------
-S17. In Object Oriented Programming you can say an object has a state and a behaviour
-what represents the state ?
-and what represents the behaviour ?
+        String s1 = "abcde";
+        String s2 = s1.replace('a', 'x');
+        System.out.println(s2);
 
 ----------------------------------------
-S18. Are class variables part of an objects state.
+S17. 
+In Object Oriented Programming you can say an object has a state and a behaviour
+
+What represents the state ? ( variabler)
+And what represents the behaviour ? (Methods)
+
+----------------------------------------
+S18. Are Class variables(Blueprint) part of an objects(faktiske bil) state.
+
+No.
 
 ----------------------------------------
 S19. What is the super class of every class in Java ?
 
+Class Object.
+
 ----------------------------------------
-S20. What is Method Overriding ?
+S20. What is Method Overriding?
 
 ------------------------------------------------
 S21. What is Method Overloading ?
 
 ------------------------------------------------
 S22. Is Multiple Inheritance allowed in Java ?
+Nope.
 
 ------------------------------------------------
 S23. What is an interface ?
@@ -158,7 +208,7 @@ S29. Can we inherit an abstract class from another abstract class?
 S30. Mention just one difference between an interface and an abstract class
 
 ------------------------------------------------
-S31. What is an Constructor ?
+S31. What is an Constructor?
 
 ------------------------------------------------
 S32. Mention 2 things that are different from a Constructor and a method.
@@ -181,9 +231,10 @@ public class Student {
 ------------------------------------------------
 S34. How do you call a Super Class Constructor from a Constructor ?
 
-    public Student(String name) {
-    	super();
-        this.name = name;
+    public Student(String name, int age) {
+    	super(this.name = name);
+	this.age = age;
+        
     }
 
 Is the above super() necessary ?
@@ -191,7 +242,7 @@ Is the above super() necessary ?
 ------------------------------------------------
 S35. This code doesnt compile, why ?
 
-public class Student {
+public class Student{
     public String name;
 
     public Student(String name) {
@@ -249,16 +300,22 @@ public class Main {
 }
 
 ------------------------------------------------
-S38. What is Polymorphism in one simple sentence ?
+S38. What is Polymorphism in one simple sentence?
+Polymorfi betyder, at metoderne har samme navn / signature, men har forskellig behavior.
 
 ------------------------------------------------
 S39. Can a private variable in a super class be accessed from a subclass.
 
+Nej. Så skal du bruge protected eller public.
 ------------------------------------------------
 S40. What is the use of a final modifier on a method ?
 
+Man kan ikke override en final method.
+
 ------------------------------------------------
 S41. What is a Final variable ?
+
+Once initialized the value of a final variable cannot be changed.
 
 ------------------------------------------------
 S42. Write a method signature with an argument that cannot be changed inside the method.
@@ -266,8 +323,11 @@ S42. Write a method signature with an argument that cannot be changed inside the
 ------------------------------------------------
 S43. What are static variables and methods ?
 
+
+
 ------------------------------------------------
 S44.  A top-level class in Java cannot be declared static.
+
 But what does the following mean ?
 
 public final class MyStaticClass {
