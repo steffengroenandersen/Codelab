@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e3bdf9ef-8ab9-4535-a65e-5ee47fd9765c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../06 - ArrayList/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../06 - ArrayList/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../06 - ArrayList/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../06 - ArrayList/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../06 - ArrayList/06 - ArrayList.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../06 - ArrayList/ArrayList/src/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../06 - ArrayList/ArrayList/src/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../06 - ArrayList/ArrayList/src/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07 - Inheritance/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07 - Inheritance/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07 - Inheritance/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07 - Inheritance/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07 - Inheritance/07 - Inheritance.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../1. Semester/Level 3 - Advanced/Banko [Logic, OO]/BankoGame/untitled/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../1. Semester/Level 3 - Advanced/Banko [Logic, OO]/BankoGame/untitled/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Loops/src/StarPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/Loops/src/StarPattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/04 - Loops/StarPattern.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/04 - Loops/StarPattern.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/04 - Loops/TestProgram.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/04 - Loops/TestProgram.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../06 - ArrayList/ArrayList/src/MyArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../06 - ArrayList/ArrayList/src/MyArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../07 - Inheritance/Inheritance/src/Banana.java" beforeDir="false" afterPath="$PROJECT_DIR$/../07 - Inheritance/Inheritance/src/Banana.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KSpVL78NgvitUmoCES3UPk3Vke" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Steffen/Documents/GitHub/Codelab/Exam Prep/04 - Loops"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="StarPattern" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StarPattern" />
+      <module name="04 - Loops" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e3bdf9ef-8ab9-4535-a65e-5ee47fd9765c" name="Changes" comment="" />
+      <created>1673977860448</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673977860448</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
